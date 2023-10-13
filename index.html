@@ -101,29 +101,7 @@
     };
     document.body.appendChild(script);
   </script>
-  <script>
-    const express = require('express');
-    const app = express();
-
-    app.get('https://chihweishiu.github.io/ARtest_win/StreamingAssets/DunHuangL.mov', (req, res) => {
-      const videoPath = 'path-to-your-video.mov';
-      const videoStat = fs.statSync(videoPath);
-
-      res.writeHead(200, {
-        'Content-Range': `bytes 0-${videoStat.size - 1}/${videoStat.size}`,
-        'Accept-Ranges': 'bytes',
-        'Content-Length': videoStat.size,
-        'Content-Type': 'video/quicktime', // 设置适当的媒体类型
-      });
-
-      const videoStream = fs.createReadStream(videoPath);
-      videoStream.pipe(res);
-    });
-
-    app.listen(3000, () => {
-      console.log('Server is running on port 3000');
-    });
-  </script>
+  
 </body>
 
 </html>
